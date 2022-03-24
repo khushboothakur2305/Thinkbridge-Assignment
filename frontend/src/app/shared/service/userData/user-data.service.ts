@@ -12,9 +12,9 @@ export class UserDataService {
     this.userData.next(userData);
   }
   getUserData() {
-    return localStorage.getItem('userData');
+    return JSON.parse(localStorage.getItem('userData'));
   }
-  removeUserData() {
+  logout() {
     localStorage.removeItem('userData');
     this.userData.next(null);
   }

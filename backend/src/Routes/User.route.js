@@ -16,7 +16,7 @@ UserRoutes.post("/sign-up", async (req, res) => {
       data: null,
     });
   } catch (err) {
-    res.status(403).send({ message: err.message });
+    res.status(500).send({ message: err.message });
   }
 });
 UserRoutes.post("/login", async (req, res) => {

@@ -7,6 +7,7 @@ import {
 } from '@angular/router';
 import { Observable } from 'rxjs';
 import { UserDataService } from '../shared/service/userData/user-data.service';
+import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root',
 })
@@ -20,10 +21,14 @@ export class AuthGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    console.log(this.userDataService.userData.getValue());
-    if (this.userDataService.userData.getValue()) {
-      return true;
-    }
-    return false;
+    return this.userDataService.userData.pipe(
+      map((userData) => {
+        if (userData) {
+          return true;
+        } else {
+          return false;
+        }
+      })
+    );
   }
 }

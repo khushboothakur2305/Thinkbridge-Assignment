@@ -12,15 +12,15 @@ const routes: Routes = [
     children: [
       {
         path: 'list',
-        component: BooksAddEditComponent,
+        component: BooksListComponent,
       },
       {
         path: 'add',
-        component: BooksDeleteConfirmationComponent,
+        component: BooksAddEditComponent,
       },
       {
         path: 'edit/:id',
-        component: BooksListComponent,
+        component: BooksAddEditComponent,
       },
     ],
   },
